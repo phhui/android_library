@@ -1,0 +1,5 @@
+rootProject.name='Library'
+include ':quicksdk'
+include ':pqwebview'
+include ':kxyx'
+include ':app'

@@ -2,22 +2,26 @@
 
 #### 介绍
 一些自己封装的库
+使用方法参考DEMO
+这里只封装SDK接口，具体使用方法参考官方文档
 
 #### 软件架构
-软件架构说明
+接SDK的时候需要针对各SDK写对应的接口调用方法，切换来切换去容易出错，抽了点时间封装成库方便使用
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  直接引用对应的jar即可
+2.  具体参考demo
 
 #### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
+重新编译
+1.  在setting.gradle中启用对应的模块
+2.  把不需要的模块注释
+3.  打开Terminal面板
+4.  执行 gradlew+对应模块中build.gradle的task方法即可
+5.  如：要重新编译quicksdk只需在Terminal中执行gradlew buildQuick
+6.  重新编译后在对应module下的build/libs/就会生成对应的jar包
 
 #### 参与贡献
 
@@ -26,12 +30,3 @@
 3.  提交代码
 4.  新建 Pull Request
 
-
-#### 码云特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
