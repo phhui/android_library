@@ -1,6 +1,6 @@
-package com.pq.pqwebview;
+package com.pq.pqtools;
 
-public interface IPqWebviewListener {
+public interface PqWebviewNotifier {
     void onPageFinished(String url);
     void onReceiveJsValue(String value);
 }

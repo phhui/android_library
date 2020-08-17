@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Library.iml" filepath="$PROJECT_DIR$/Library.iml" group="Library" />
-      <module fileurl="file://$PROJECT_DIR$/kxyx/kxyx.iml" filepath="$PROJECT_DIR$/kxyx/kxyx.iml" group="Library/kxyx" />
+      <module fileurl="file://$PROJECT_DIR$/pqtools/pqtools.iml" filepath="$PROJECT_DIR$/pqtools/pqtools.iml" group="Library/pqtools" />
     </modules>
   </component>
 </project>

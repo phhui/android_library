@@ -1,4 +1,4 @@
-package com.pq.pqwebview;
+package com.pq.pqtools;
 import android.webkit.WebSettings;
 public class WebSettingUtil {
     public static void setEgret(WebSettings ws){

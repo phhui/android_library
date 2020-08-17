@@ -6,6 +6,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
+
 import com.kxyx.KxyxSDK;
 import com.kxyx.bean.PayStateBean;
 import com.kxyx.bean.ReportBean;
@@ -33,14 +35,32 @@ public class KxyxUtil {
                 log("初始化失败");
             }
         });
+        instance.setOnLogoutListener(new KxyxSDK.onLogoutListener()
+        {
+            @Override
+            public void onResponse()
+            {
+                kn.signOut();
+            }
+        });
     }
     public static void requestPermissions(){
-        ActivityCompat.requestPermissions(act, new String[] { Manifest.permission.READ_PHONE_STATE,Manifest.permission.WRITE_EXTERNAL_STORAGE }, 1);
+        try {
+            ActivityCompat.requestPermissions(act, new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }catch(Exception err){
+            log("请求权限异常："+err.getMessage());
+        }
     }
-    public static boolean checkPermissions(){
-        if ((ContextCompat.checkSelfPermission(act, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)
-                || (ContextCompat.checkSelfPermission(act, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED))return false;
-        return true;
+    public static boolean checkPermissions() {
+        try {
+            if ((ContextCompat.checkSelfPermission(act, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)
+                    || (ContextCompat.checkSelfPermission(act, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED))
+                return false;
+            return true;
+        } catch (Exception err) {
+            log("检测权限异常：" + err.getMessage());
+        }
+        return false;
     }
     public static void signIn(){
         instance.login(act);

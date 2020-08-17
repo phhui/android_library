@@ -25,15 +25,19 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
-task buildPqwebview(type: Copy) {
-    delete'build/libs/pqwv.jar'
+task buildPqTools(type: Copy) {
+    delete'build/libs/pqtools.jar'
     from('build/intermediates/aar_main_jar/release/')
     into('build/libs/')
     include('classes.jar')
-    rename('classes.jar','pqwv.jar')
+    rename('classes.jar','pqtools.jar')
 }
 
-buildPqwebview.dependsOn(build)
+buildPqTools.dependsOn(build)

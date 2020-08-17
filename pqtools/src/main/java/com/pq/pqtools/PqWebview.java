@@ -1,4 +1,4 @@
-package com.pq.pqwebview;
+package com.pq.pqtools;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,7 +11,7 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
 public class PqWebview extends WebView {
-    private IPqWebviewListener listener=null;
+    private PqWebviewNotifier listener=null;
     private FrameLayout view;
     private Activity ct;
     public PqWebview(Activity context) {
@@ -19,7 +19,7 @@ public class PqWebview extends WebView {
         ct=context;
         init();
     }
-    public PqWebview(Activity context,IPqWebviewListener ipwl) {
+    public PqWebview(Activity context, PqWebviewNotifier ipwl) {
         super(context);
         ct=context;
         listener=ipwl;
