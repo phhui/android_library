@@ -3,6 +3,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.support.annotation.Nullable;
 import android.webkit.JsResult;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -71,6 +73,12 @@ public class PqWebview extends WebView {
                 return true;
             }
         });
+        this.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public Bitmap getDefaultVideoPoster() {
+                return Bitmap.createBitmap(1,1,Bitmap.Config.ARGB_8888);
+            }
+        });
         WebSettingUtil.setEgret(this.getSettings());
         this.requestFocusFromTouch();
         view=(FrameLayout)ct.getWindow().getDecorView();
@@ -95,5 +103,12 @@ public class PqWebview extends WebView {
                 if(listener!=null)listener.onReceiveJsValue(value);//此处为 js 返回的结果
             }
         });
+    }
+    public void destory(){
+        this.clearHistory();
+        this.clearCache(true);
+        this.loadUrl("about:blank"); // clearView() should be changed to loadUrl("about:blank"), since clearView() is deprecated now
+        this.freeMemory();
+        this.pauseTimers();
     }
 }

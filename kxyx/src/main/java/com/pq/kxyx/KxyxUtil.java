@@ -1,7 +1,10 @@
 package com.pq.kxyx;
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
@@ -18,6 +21,7 @@ public class KxyxUtil {
     private static Activity act;
     private static KxyxNotifier kn;
     private static String reportParam;
+    private static boolean isReport=false;
     public static void init(Activity _act,KxyxNotifier _kn){
         act=_act;
         kn=_kn;
@@ -79,6 +83,10 @@ public class KxyxUtil {
         });
     }
     public static void pay(String jsonStr){
+        if(!isReport){
+            showDialog("✖✖✖✖✖✖注意，角色未上报！✖✖✖✖✖✖");
+            tip("✖✖✖✖✖✖注意，角色未上报！✖✖✖✖✖✖");
+        }
         try {
             JSONObject obj = new JSONObject(jsonStr);
             String money = obj.getString("money");
@@ -134,6 +142,7 @@ public class KxyxUtil {
             instance.setOnUpgradeListener(new KxyxSDK.onUpgradeListener() {
                 @Override
                 public void onSuccess(ReportBean reportBean) {
+                    isReport=true;
                     log("上报成功：" + reportBean.toString());
                 }
 
@@ -146,6 +155,48 @@ public class KxyxUtil {
         }catch(Exception err){
             log("上报参数错误："+err.getMessage());
         }
+    }
+    public static void showDialog(String msg){
+        AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        //    设置Title的图标
+//        builder.setIcon(R.drawable.icon);
+        //    设置Title的内容
+        builder.setTitle("注意");
+        //    设置Content来显示一个信息
+        builder.setMessage(msg);
+        //    设置一个PositiveButton
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                Toast.makeText(act, "positive: " + which, Toast.LENGTH_SHORT).show();
+            }
+        });
+        //    设置一个NegativeButton
+//        builder.setNegativeButton("取消", new DialogInterface.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which)
+//            {
+//                Toast.makeText(act, "negative: " + which, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        //    设置一个NeutralButton
+//        builder.setNeutralButton("忽略", new DialogInterface.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which)
+//            {
+//                Toast.makeText(act, "neutral: " + which, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+        //    显示出该对话框
+        builder.show();
+    }
+    public static void tip(String msg){
+        Toast.makeText(act, msg, Toast.LENGTH_SHORT).show();
+        log(msg);
     }
     public static void log(String msg){
         Log.d("log>>>",msg);
