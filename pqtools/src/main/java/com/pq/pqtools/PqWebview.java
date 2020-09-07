@@ -3,7 +3,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.webkit.JsResult;
 import android.webkit.ValueCallback;
@@ -31,7 +33,12 @@ public class PqWebview extends WebView {
         this.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
+                if(url.contains("alipays://platformapi")||url.contains("weixin://wap/pay")){
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    ct.startActivity(intent);
+                } else {
+                    view.loadUrl(url);
+                }
                 return true;
             }
             @Override
