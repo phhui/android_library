@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.webkit.JsResult;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -33,6 +34,7 @@ public class PqWebview extends WebView {
         this.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Log.d("log>>>",url);
                 if(url.contains("alipays://platformapi")||url.contains("weixin://wap/pay")){
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     ct.startActivity(intent);
@@ -111,11 +113,11 @@ public class PqWebview extends WebView {
             }
         });
     }
-    public void destory(){
+    public void destorys(){
         this.clearHistory();
         this.clearCache(true);
         this.loadUrl("about:blank"); // clearView() should be changed to loadUrl("about:blank"), since clearView() is deprecated now
         this.freeMemory();
-        this.pauseTimers();
+//        this.pauseTimers();
     }
 }

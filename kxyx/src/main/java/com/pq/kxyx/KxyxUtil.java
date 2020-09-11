@@ -84,8 +84,9 @@ public class KxyxUtil {
     }
     public static void pay(String jsonStr){
         if(!isReport){
-            showDialog("✖✖✖✖✖✖注意，角色未上报！✖✖✖✖✖✖");
-            tip("✖✖✖✖✖✖注意，角色未上报！✖✖✖✖✖✖");
+//            showDialog("✖✖✖✖✖✖注意，角色未上报！✖✖✖✖✖✖");
+//            tip("角色信息未上报！");
+            log("✖✖✖✖✖✖注意，角色未上报！✖✖✖✖✖✖");
         }
         try {
             JSONObject obj = new JSONObject(jsonStr);
@@ -119,13 +120,14 @@ public class KxyxUtil {
                             log("待付款");
                             break;
                         case "1":
+                            kn.paySuccess(payStateBean);
                             log("已付款");
                             break;
                         case "2":
                             log("未付款");
                             break;
                         case "3":
-                            kn.paySuccess(payStateBean);
+                            log("付款失败！"+payStateBean.getMsg());
                             break;
                     }
                 }
