@@ -105,8 +105,3 @@ public class PqFloatBtn {
         });
     }
 }
-interface PqFloatBtnNotifier{
-    void onClick(MotionEvent e);
-//    void onDown(MotionEvent e);
-//    void onMove(MotionEvent e);
-}

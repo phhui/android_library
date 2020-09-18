@@ -46,6 +46,7 @@ public class PqWebview extends WebView {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view,url);
+                Log.d("log>>>","url load finish:"+url);
                 if(listener!=null)listener.onPageFinished(url);//这里执行完毕才能调用webview中的JS
             }
             /**

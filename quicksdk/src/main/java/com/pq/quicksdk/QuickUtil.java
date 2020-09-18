@@ -183,25 +183,28 @@ public class QuickUtil {
         QuickSDK.getInstance().setInitNotifier(new InitNotifier() {
             @Override
             public void onSuccess() {
-                log("干，老子初始化完了");
+                log("Quick Init Success");
                 iql.inited();
             }
 
             @Override
             public void onFailed(String s, String s1) {
-                showTip("初始化失败："+s+"--"+s1);
+                showTip("Quick Init Failed："+s+"--"+s1);
             }
         });
         QuickSDK.getInstance().setLoginNotifier(new LoginNotifier() {
             @Override
             public void onSuccess(UserInfo userInfo) {
+                log("login success");
                 iql.loginSuccess(userInfo);
             }
             @Override
             public void onCancel() {
+                log("login cancel");
             }
             @Override
             public void onFailed(final String message, String trace) {
+                log("login failed");
                 if(autoLogin){
                     autoLogin=false;
                     signIn();
@@ -236,15 +239,18 @@ public class QuickUtil {
         QuickSDK.getInstance().setPayNotifier(new PayNotifier() {
             @Override
             public void onSuccess(String sdkOrderID, String cpOrderID,String extrasParams) {
+                log("pay success");
                 iql.paySuccess(sdkOrderID,cpOrderID,extrasParams);
                 //sdkOrderID:quick订单号 cpOrderID：游戏订单号
             }
             @Override
             public void onCancel(String cpOrderID) {
+                log("pay cancel");
                 //支付取消
             }
             @Override
             public void onFailed(String cpOrderID, String message, String trace) {
+                log("pay failed:"+trace);
                 iql.payFailed(cpOrderID,message,trace);
             }
         });
