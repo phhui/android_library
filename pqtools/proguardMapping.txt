@@ -1,0 +1,110 @@
+# compiler: R8
+# compiler_version: 1.6.82
+# pg_map_id: 9f48331
+# common_typos_disable
+com.pq.pqtools.ApkUtil -> com.pq.pqtools.ApkUtil:
+    1:1:void <init>():10:10 -> <init>
+    1:14:void install(android.content.Context,java.lang.String,java.lang.String):12:25 -> install
+com.pq.pqtools.BuildConfig -> com.pq.pqtools.BuildConfig:
+    1:1:void <init>():6:6 -> <init>
+com.pq.pqtools.DownUtil -> com.pq.pqtools.DownUtil:
+    1:1:void <init>():12:12 -> <init>
+    1:1:com.pq.pqtools.DownNotifier access$000():12:12 -> access$000
+    1:7:void downloadFile(java.lang.String,java.lang.String,com.pq.pqtools.DownNotifier):15:21 -> downloadFile
+com.pq.pqtools.DownUtil$1 -> com.pq.pqtools.DownUtil$1:
+    1:1:void <init>(java.lang.String,java.lang.String,long):21:21 -> <init>
+    1:3:void onFailure(okhttp3.Call,java.io.IOException):24:26 -> onFailure
+    1:34:void onResponse(okhttp3.Call,okhttp3.Response):31:64 -> onResponse
+    35:48:void onResponse(okhttp3.Call,okhttp3.Response):53:66 -> onResponse
+com.pq.pqtools.FileUtil -> com.pq.pqtools.FileUtil:
+    1:1:void <init>():21:21 -> <init>
+    1:2:boolean checkDir(java.lang.String):54:55 -> checkDir
+    1:20:void copy(android.content.Context,java.lang.String,java.lang.String,java.lang.String):31:50 -> copy
+    1:10:boolean del(java.lang.String):122:131 -> del
+    1:3:void testCopy(android.content.Context):168:170 -> testCopy
+    1:23:boolean unpackZip(java.lang.String,java.lang.String):140:162 -> unpackZip
+    1:58:boolean unzip(java.lang.String,java.lang.String,com.pq.pqtools.FileNotifier):59:116 -> unzip
+com.pq.pqtools.FullScreenUtil -> com.pq.pqtools.FullScreenUtil:
+    1:1:void <init>():14:14 -> <init>
+    1:1:android.os.Handler access$000():14:14 -> access$000
+    1:14:void autoFullScreen(android.app.Activity):18:31 -> autoFullScreen
+    1:14:void autoHideNavigation(android.app.Activity):35:48 -> autoHideNavigation
+    1:8:void hideNavigation(android.app.Activity):69:76 -> hideNavigation
+    1:3:void hideStatusBar(android.app.Activity):64:66 -> hideStatusBar
+    1:1:void hideTitle(android.app.Activity):61:61 -> hideTitle
+    1:7:void setFullscreen(android.app.Activity):51:57 -> setFullscreen
+com.pq.pqtools.FullScreenUtil$1 -> com.pq.pqtools.FullScreenUtil$1:
+    1:1:void <init>(android.app.Activity):18:18 -> <init>
+    1:1:void handleMessage(android.os.Message):21:21 -> handleMessage
+com.pq.pqtools.FullScreenUtil$2 -> com.pq.pqtools.FullScreenUtil$2:
+    1:1:void <init>():25:25 -> <init>
+    1:1:void run():28:28 -> run
+com.pq.pqtools.FullScreenUtil$3 -> com.pq.pqtools.FullScreenUtil$3:
+    1:1:void <init>(android.app.Activity):35:35 -> <init>
+    1:1:void handleMessage(android.os.Message):38:38 -> handleMessage
+com.pq.pqtools.FullScreenUtil$4 -> com.pq.pqtools.FullScreenUtil$4:
+    1:1:void <init>():42:42 -> <init>
+    1:1:void run():45:45 -> run
+com.pq.pqtools.ImgUtils -> com.pq.pqtools.ImgUtils:
+    1:1:void <init>():14:14 -> <init>
+    1:27:boolean saveImageToGallery(android.content.Context,android.graphics.Bitmap):18:44 -> saveImageToGallery
+com.pq.pqtools.PqFloatBtn -> com.pq.pqtools.PqFloatBtn:
+    1:20:void <clinit>():18:37 -> <clinit>
+    1:1:void <init>():13:13 -> <init>
+    1:1:android.app.Activity access$000():13:13 -> access$000
+    1:1:android.widget.FrameLayout$LayoutParams access$100():13:13 -> access$100
+    1:1:android.widget.ImageView access$200():13:13 -> access$200
+    1:1:void access$300(boolean,boolean):13:13 -> access$300
+    1:1:java.util.Timer access$400():13:13 -> access$400
+    1:1:com.pq.pqtools.PqFloatBtnNotifier access$500():13:13 -> access$500
+    1:14:android.widget.ImageView create(android.app.Activity,int,com.pq.pqtools.PqFloatBtnNotifier):22:35 -> create
+    1:1:void resetBackBtn(boolean,boolean):93:93 -> resetBackBtn
+com.pq.pqtools.PqFloatBtn$1 -> com.pq.pqtools.PqFloatBtn$1:
+    1:5:void <init>():37:41 -> <init>
+    1:39:boolean onTouch(android.view.View,android.view.MotionEvent):45:83 -> onTouch
+    40:48:boolean onTouch(android.view.View,android.view.MotionEvent):49:57 -> onTouch
+com.pq.pqtools.PqFloatBtn$1$1 -> com.pq.pqtools.PqFloatBtn$1$1:
+    1:1:void <init>(com.pq.pqtools.PqFloatBtn$1):72:72 -> <init>
+    1:1:void run():75:75 -> run
+com.pq.pqtools.PqFloatBtn$2 -> com.pq.pqtools.PqFloatBtn$2:
+    1:1:void <init>(boolean,boolean):93:93 -> <init>
+    1:8:void run():96:103 -> run
+com.pq.pqtools.PqWebview -> com.pq.pqtools.PqWebview:
+    1:1:void <init>(android.app.Activity):22:22 -> <init>
+    2:8:void <init>(android.app.Activity):18:24 -> <init>
+    9:9:void <init>(android.app.Activity,com.pq.pqtools.PqWebviewNotifier):27:27 -> <init>
+    10:22:void <init>(android.app.Activity,com.pq.pqtools.PqWebviewNotifier):18:30 -> <init>
+    1:1:android.app.Activity access$000(com.pq.pqtools.PqWebview):17:17 -> access$000
+    1:1:com.pq.pqtools.PqWebviewNotifier access$100(com.pq.pqtools.PqWebview):17:17 -> access$100
+    1:1:void callJs(java.lang.String):109:109 -> callJs
+    1:4:void destorys():117:120 -> destorys
+    1:62:void init():33:94 -> init
+    1:1:void regFunc(java.lang.Object,java.lang.String):106:106 -> regFunc
+com.pq.pqtools.PqWebview$1 -> com.pq.pqtools.PqWebview$1:
+    1:1:void <init>(com.pq.pqtools.PqWebview):33:33 -> <init>
+    1:3:void onPageFinished(android.webkit.WebView,java.lang.String):47:49 -> onPageFinished
+    1:6:boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String):36:41 -> shouldOverrideUrlLoading
+    7:8:boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String):38:39 -> shouldOverrideUrlLoading
+com.pq.pqtools.PqWebview$2 -> com.pq.pqtools.PqWebview$2:
+    1:1:void <init>(com.pq.pqtools.PqWebview):67:67 -> <init>
+    1:11:boolean onJsAlert(android.webkit.WebView,java.lang.String,java.lang.String,android.webkit.JsResult):71:81 -> onJsAlert
+com.pq.pqtools.PqWebview$2$1 -> com.pq.pqtools.PqWebview$2$1:
+    1:1:void <init>(com.pq.pqtools.PqWebview$2,android.webkit.JsResult):74:74 -> <init>
+    1:1:void onClick(android.content.DialogInterface,int):77:77 -> onClick
+com.pq.pqtools.PqWebview$3 -> com.pq.pqtools.PqWebview$3:
+    1:1:void <init>(com.pq.pqtools.PqWebview):85:85 -> <init>
+    1:1:android.graphics.Bitmap getDefaultVideoPoster():88:88 -> getDefaultVideoPoster
+com.pq.pqtools.PqWebview$4 -> com.pq.pqtools.PqWebview$4:
+    1:1:void <init>(com.pq.pqtools.PqWebview):109:109 -> <init>
+    1:1:void onReceiveValue(java.lang.Object):109:109 -> onReceiveValue
+    2:2:void onReceiveValue(java.lang.String):112:112 -> onReceiveValue
+com.pq.pqtools.WebSettingUtil -> com.pq.pqtools.WebSettingUtil:
+    1:1:void <init>():3:3 -> <init>
+    1:56:void setEgret(android.webkit.WebSettings):5:60 -> setEgret
+com.pq.pqtools.ZipUtil -> com.pq.pqtools.ZipUtil:
+    1:1:void <init>():15:15 -> <init>
+    1:15:java.io.File doZipFile(java.io.File,java.lang.String,java.lang.String):86:100 -> doZipFile
+    1:21:java.io.File doZipFileList(java.io.File[],java.lang.String,java.lang.String):24:44 -> doZipFileList
+    1:15:java.io.File doZipFilesDir(java.io.File,java.lang.String,java.lang.String):58:72 -> doZipFilesDir
+    1:11:boolean unZip(java.lang.String,java.lang.String,java.lang.String):115:125 -> unZip
+    12:22:boolean unZip(java.io.File,java.lang.String,java.lang.String):138:148 -> unZip
