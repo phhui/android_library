@@ -6,10 +6,11 @@ import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.gson.JsonObject;
 import com.quicksdk.BaseCallBack;
@@ -224,7 +225,7 @@ public class QuickUtil {
         QuickSDK.getInstance().setSwitchAccountNotifier(new SwitchAccountNotifier() {
             @Override
             public void onSuccess(UserInfo userInfo) { //切换账号成功的回调，返回新账号的userInfo
-
+                iql.changeAccount(userInfo);
             }
 
             @Override
@@ -258,6 +259,7 @@ public class QuickUtil {
             @Override
             public void onSuccess() {
                 //退出成功，游戏在此做自身的退出逻辑处理
+                iql.signOut();
             }
             @Override
             public void onFailed(String message, String trace) {

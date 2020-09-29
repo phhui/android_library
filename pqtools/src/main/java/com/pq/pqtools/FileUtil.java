@@ -50,6 +50,9 @@ public class FileUtil {
             e.printStackTrace();
         }
     }
+    public static boolean checkFileExist(String filePath){
+
+    }
     public static boolean checkDir(String dirPath){
         File f=new File(dirPath);
         return f.exists();
