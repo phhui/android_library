@@ -1,17 +1,13 @@
 package com.pq.pqtools;
-
 import android.text.TextUtils;
 import android.util.Log;
-
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 import net.lingala.zip4j.model.ZipParameters;
 import net.lingala.zip4j.model.enums.AesKeyStrength;
 import net.lingala.zip4j.model.enums.EncryptionMethod;
-
 import java.io.File;
 import java.util.ArrayList;
-
 public class ZipUtil {
     /**
      * 对文件列表压缩加密
@@ -45,8 +41,6 @@ public class ZipUtil {
             return null;
         }
     }
-
-
     /**
      * 对文件夹加密
      * @param folder
@@ -113,6 +107,10 @@ public class ZipUtil {
         boolean res = false;
         try {
             ZipFile zipFile = new ZipFile(file);
+            if (!zipFile.isValidZipFile()) {   // 验证.zip文件是否合法，包括文件是否存在、是否为zip文件、是否被损坏等
+                Log.d("log>>>","压缩文件不合法,可能被损坏.");
+                return res;
+            }
             if (zipFile.isEncrypted()) {
                 if(password != null && !password.isEmpty()) {
                     zipFile.setPassword(password.toCharArray());
@@ -136,6 +134,10 @@ public class ZipUtil {
         boolean res = false;
         try {
             ZipFile zipFile = new ZipFile(file);
+            if (!zipFile.isValidZipFile()) {   // 验证.zip文件是否合法，包括文件是否存在、是否为zip文件、是否被损坏等
+                Log.d("log>>>","压缩文件不合法,可能被损坏.");
+                return res;
+            }
             if (zipFile.isEncrypted()) {
                 if(password != null && !password.isEmpty()) {
                     zipFile.setPassword(password.toCharArray());

@@ -1,6 +1,6 @@
 package com.pq.pqtools;
 
 public interface FileNotifier {
-    void unzipFinish();
-    void unzipFailed();
+    void copySuccess();
+    void copyFailed();
 }

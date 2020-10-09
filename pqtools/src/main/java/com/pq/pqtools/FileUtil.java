@@ -1,25 +1,112 @@
 package com.pq.pqtools;
 import android.content.Context;
-import android.os.Build;
 import android.util.Log;
-
-import androidx.annotation.RequiresApi;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.Charset;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-import java.util.zip.ZipInputStream;
+import java.io.InputStreamReader;
 
 public class FileUtil {
     private static FileNotifier fn;
+    /**
+     * 判断文件是否存在
+     *
+     * @param file 文件
+     * @return {@code true}: 存在<br>{@code false}: 不存在
+     */
+    public static boolean isFileExists(final File file) {
+        return file != null && file.exists();
+    }
+
+    /**
+     * 判断文件是否存在，不存在则判断是否创建成功
+     *
+     * @param file 文件
+     * @return {@code true}: 存在或创建成功<br>{@code false}: 不存在或创建失败
+     */
+    public static boolean createOrExistsFile(final File file) {
+        if (file == null) return false;
+        // 如果存在，是文件则返回 true，是目录则返回 false
+        if (file.exists()) return file.isFile();
+        if (!createOrExistsDir(file.getParentFile())) return false;
+        try {
+            return file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 判断目录是否存在，不存在则判断是否创建成功
+     *
+     * @param file 文件
+     * @return {@code true}: 存在或创建成功<br>{@code false}: 不存在或创建失败
+     */
+    public static boolean createOrExistsDir(final File file) {
+        // 如果存在，是目录则返回 true，是文件则返回 false，不存在则返回是否创建成功
+        return file != null && (file.exists() ? file.isDirectory() : file.mkdirs());
+    }
+
+    /**
+     * 判断目录是否存在，不存在则判断是否创建成功
+     *
+     * @param dirPath 目录路径
+     * @return {@code true}: 存在或创建成功<br>{@code false}: 不存在或创建失败
+     */
+    public static boolean createOrExistsDir(final String dirPath) {
+        return createOrExistsDir(getFileByPath(dirPath));
+    }
+
+    /**
+     * 根据文件路径获取文件
+     *
+     * @param filePath 文件路径
+     * @return 文件
+     */
+    public static File getFileByPath(final String filePath) {
+        return isSpace(filePath) ? null : new File(filePath);
+    }
+
+    private static boolean isSpace(final String s) {
+        if (s == null) return true;
+        for (int i = 0, len = s.length(); i < len; ++i) {
+            if (!Character.isWhitespace(s.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static String read(String path){
+        String content = ""; //文件内容字符串
+        File file = new File(path);
+        //如果path是传递过来的参数，可以做一个非目录的判断
+        if (file.isDirectory()){
+            Log.d("TestFile", "The File doesn't not exist.");
+        }else{
+            try {
+                InputStream instream = new FileInputStream(file);
+                if (instream != null){
+                    InputStreamReader inputreader = new InputStreamReader(instream);
+                    BufferedReader buffreader = new BufferedReader(inputreader);
+                    String line;
+                    //分行读取
+                    while (( line = buffreader.readLine()) != null) {
+                        content += line + "\n";
+                    }
+                    instream.close();
+                }
+            }catch (java.io.FileNotFoundException e){
+                Log.d("TestFile", "The File doesn't not exist.");
+            }catch (IOException e){
+                Log.d("TestFile", e.getMessage());
+            }
+        }
+        return content;
+    }
     /**
      * @param myContext
      * @param ASSETS_NAME 要复制的文件名
@@ -27,7 +114,7 @@ public class FileUtil {
      * @param saveName    复制后的文件名
      * testCopy(Context context)是一个测试例子。
      */
-    public static void copy(Context myContext, String ASSETS_NAME,String savePath, String saveName) {
+    public static void copy(Context myContext, String ASSETS_NAME,String savePath, String saveName,FileNotifier _fn) {
         String filename = savePath + "/" + saveName;
         File dir = new File(savePath);
         // 如果目录不中存在，创建这个目录
@@ -44,82 +131,17 @@ public class FileUtil {
                 }
                 fos.close();
                 is.close();
+                _fn.copySuccess();
             }
         } catch (Exception e) {
             Log.d("log>>>","copy failed>"+e.getMessage());
             e.printStackTrace();
+            _fn.copyFailed();
         }
-    }
-    public static boolean checkFileExist(String filePath){
-
     }
     public static boolean checkDir(String dirPath){
         File f=new File(dirPath);
         return f.exists();
-    }
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public static boolean unzip(String dir, String filePath,FileNotifier _fn){
-        fn=_fn;
-        try {
-            BufferedInputStream bi;
-            ZipFile zf = new ZipFile(filePath, Charset.forName("GBK"));
-            Enumeration e = zf.entries();
-            File fi;
-            FileOutputStream fos;
-            while (e.hasMoreElements())
-            {
-                ZipEntry ze2 = (ZipEntry) e.nextElement();
-                String entryName = ze2.getName();
-                String path = dir + "/" + entryName;
-                if (ze2.isDirectory())
-                {
-                    System.out.println("正在创建解压目录 - " + path);
-                    File decompressDirFile = new File(path);
-                    if (!decompressDirFile.exists()){
-                        decompressDirFile.mkdirs();
-                    }
-                } else {
-//                    System.out.println("正在创建解压文件 - " + entryName);
-                    fi = new File(path);
-                    System.out.println("正在创建解压文件 - " + path);
-                    File fileParent = fi.getParentFile();//返回的是File类型,可以调用exsit()等方法
-                    String fileParentPath = fi.getParent();//返回的是String类型
-//                    System.out.println("fileParent:" + fileParent);
-//                    System.out.println("fileParentPath:" + fileParentPath);
-                    if (!fileParent.exists()) {
-                        fileParent.mkdirs();// 能创建多级目录
-                    }
-                    if (!fi.exists())
-                        fi.createNewFile();//有路径才能创建文件
-
-//                    if (!fi.exists()){
-//                        System.out.println("文件不存在");
-//                    }else System.out.println("文件已存在");
-//                    Log.d("log>>>","a");
-                    fos=new FileOutputStream(fi);
-//                    Log.d("log>>>","b");
-                    BufferedOutputStream bos = new BufferedOutputStream(fos);
-//                    Log.d("log>>>","c");
-                    bi = new BufferedInputStream(zf.getInputStream(ze2));
-                    byte[] readContent = new byte[1024];
-                    int readCount = bi.read(readContent);
-//                    Log.d("log>>>","d");
-                    while (readCount != -1)
-                    {
-                        bos.write(readContent, 0, readCount);
-                        readCount = bi.read(readContent);
-                    }
-                    bos.close();
-                }
-            }
-            zf.close();
-            fn.unzipFinish();
-        }catch(Exception err){
-            Log.d("log>>>","unzip failed:"+err.getMessage());
-            fn.unzipFailed();
-            return false;
-        }
-        return true;
     }
     public static boolean del(String filePath){
         File file=new File(filePath);
@@ -134,42 +156,5 @@ public class FileUtil {
             Log.d("log>>>","文件"+filePath+"不存在或不是文件");
         }
         return false;
-    }
-    public static boolean unpackZip(String path, String zipname){
-        InputStream is;
-        ZipInputStream zis;
-        try{
-            String filename;
-            is = new FileInputStream(path + zipname);
-            zis = new ZipInputStream(new BufferedInputStream(is));
-            ZipEntry ze;
-            byte[] buffer = new byte[1024];
-            int count;
-            while ((ze = zis.getNextEntry()) != null){
-                filename = ze.getName();
-                if (ze.isDirectory()) {
-                    File fmd = new File(path + filename);
-                    fmd.mkdirs();
-                    continue;
-                }
-                FileOutputStream fout = new FileOutputStream(path + filename);
-                while ((count = zis.read(buffer)) != -1){
-                    fout.write(buffer, 0, count);
-                }
-                fout.close();
-                zis.closeEntry();
-            }
-            zis.close();
-        }
-        catch(IOException e){
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-    public void testCopy(Context context) {
-        String path = context.getFilesDir().getAbsolutePath();
-        String name = "test.txt";
-        FileUtil.copy(context, name, path, name);
     }
 }
