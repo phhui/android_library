@@ -11,6 +11,7 @@ public class H5Util extends BaseUtil{
     private static String verUrl="http://120.132.17.138/apk/test.json";
     private static String localPath;
     private static H5Notifier hn;
+    public static String version;
     private static Timer timer = new Timer();
     public static void init(Context ct, H5Notifier _hn){
         init(ct);
@@ -94,6 +95,7 @@ public class H5Util extends BaseUtil{
             JSONObject oldVer = new JSONObject(localVer);
             JSONObject newVer=new JSONObject(verStr);
             updateVersionFile(verStr);
+            version=newVer.getString("version")+"."+newVer.getString("resVer");
             if(oldVer.getString("version").equals(newVer.getString("version"))){
                 if(oldVer.getString("resVer").equals(newVer.getString("resVer"))){
                     Log.d("log>>>","版本一致，无需更新");

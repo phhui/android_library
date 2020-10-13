@@ -215,6 +215,7 @@ public class QuickUtil {
         QuickSDK.getInstance().setLogoutNotifier(new LogoutNotifier() {
             @Override
             public void onSuccess() {
+                iql.signOut();
                 //注销成功
             }
             @Override
@@ -259,7 +260,8 @@ public class QuickUtil {
             @Override
             public void onSuccess() {
                 //退出成功，游戏在此做自身的退出逻辑处理
-                iql.signOut();
+                iql.exit();
+//                iql.signOut();
             }
             @Override
             public void onFailed(String message, String trace) {

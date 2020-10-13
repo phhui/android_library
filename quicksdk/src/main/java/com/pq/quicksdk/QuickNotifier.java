@@ -5,6 +5,7 @@ public interface QuickNotifier {
     void loginSuccess(UserInfo info);
     void loginFailed(String message, String trace);
     void signOut();
+    void exit();
     void changeAccount(UserInfo info);
     void paySuccess(String sdkOrderID, String cpOrderID, String extrasParams);
     void payFailed(String cpOrderID, String message, String trace);
