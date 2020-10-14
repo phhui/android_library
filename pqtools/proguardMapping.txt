@@ -1,6 +1,6 @@
 # compiler: R8
 # compiler_version: 1.6.82
-# pg_map_id: 0f42a2c
+# pg_map_id: d188a00
 # common_typos_disable
 com.pq.pqtools.ApiHelper -> com.pq.pqtools.ApiHelper:
     1:1:void <init>():17:17 -> <init>
@@ -11,6 +11,25 @@ com.pq.pqtools.ApiHelper -> com.pq.pqtools.ApiHelper:
 com.pq.pqtools.ApkUtil -> com.pq.pqtools.ApkUtil:
     1:1:void <init>():10:10 -> <init>
     1:14:void install(android.content.Context,java.lang.String,java.lang.String):12:25 -> install
+com.pq.pqtools.AssetsUtil -> com.pq.pqtools.AssetsUtil:
+    1:5:void <init>(android.content.Context):23:27 -> <init>
+    6:6:void <init>(android.content.Context):24:24 -> <init>
+    1:1:com.pq.pqtools.AssetsUtil$FileOperateCallback access$000(com.pq.pqtools.AssetsUtil):10:10 -> access$000
+    1:1:android.content.Context access$100(com.pq.pqtools.AssetsUtil):10:10 -> access$100
+    1:1:void access$200(com.pq.pqtools.AssetsUtil,android.content.Context,java.lang.String,java.lang.String):10:10 -> access$200
+    1:1:boolean access$300(com.pq.pqtools.AssetsUtil):10:10 -> access$300
+    1:1:android.os.Handler access$400(com.pq.pqtools.AssetsUtil):10:10 -> access$400
+    1:1:java.lang.String access$500(com.pq.pqtools.AssetsUtil):10:10 -> access$500
+    1:29:void copyAssetsToDst(android.content.Context,java.lang.String,java.lang.String):62:90 -> copyAssetsToDst
+    1:10:com.pq.pqtools.AssetsUtil copyAssetsToSD(java.lang.String,java.lang.String):43:52 -> copyAssetsToSD
+    1:3:com.pq.pqtools.AssetsUtil getInstance(android.content.Context):19:21 -> getInstance
+    1:1:void setFileOperateCallback(com.pq.pqtools.AssetsUtil$FileOperateCallback):57:57 -> setFileOperateCallback
+com.pq.pqtools.AssetsUtil$1 -> com.pq.pqtools.AssetsUtil$1:
+    1:1:void <init>(com.pq.pqtools.AssetsUtil,android.os.Looper):27:27 -> <init>
+    1:7:void handleMessage(android.os.Message):30:36 -> handleMessage
+com.pq.pqtools.AssetsUtil$2 -> com.pq.pqtools.AssetsUtil$2:
+    1:1:void <init>(com.pq.pqtools.AssetsUtil,java.lang.String,java.lang.String):43:43 -> <init>
+    1:5:void run():46:50 -> run
 com.pq.pqtools.BaseUtil -> com.pq.pqtools.BaseUtil:
     1:1:void <init>():7:7 -> <init>
     1:1:void init(android.content.Context):10:10 -> init
@@ -72,45 +91,45 @@ com.pq.pqtools.FullScreenUtil$4 -> com.pq.pqtools.FullScreenUtil$4:
     1:1:void <init>():42:42 -> <init>
     1:1:void run():45:45 -> run
 com.pq.pqtools.H5Util -> com.pq.pqtools.H5Util:
-    1:1:void <clinit>():14:14 -> <clinit>
+    1:1:void <clinit>():15:15 -> <clinit>
     1:1:void <init>():10:10 -> <init>
     1:1:java.lang.String access$000():10:10 -> access$000
     1:1:void access$100(java.lang.String):10:10 -> access$100
     1:1:void access$200(java.lang.String):10:10 -> access$200
     1:1:com.pq.pqtools.H5Notifier access$300():10:10 -> access$300
-    1:1:void checkUpdate():72:72 -> checkUpdate
-    1:23:void checkVer(java.lang.String):92:114 -> checkVer
-    1:16:void copyRes():28:43 -> copyRes
-    1:4:void downFile(java.lang.String):118:121 -> downFile
-    1:1:void getNewVer():75:75 -> getNewVer
-    1:9:void init(android.content.Context,com.pq.pqtools.H5Notifier):16:24 -> init
-    1:2:void reDownload(java.lang.String):153:154 -> reDownload
-    1:12:java.lang.String readFileFromAssets(java.lang.String):55:66 -> readFileFromAssets
-    1:6:void unzipRes():46:51 -> unzipRes
-    1:3:void updateVersionFile(java.lang.String):162:164 -> updateVersionFile
+    1:1:void checkUpdate():73:73 -> checkUpdate
+    1:24:void checkVer(java.lang.String):93:116 -> checkVer
+    1:16:void copyRes():29:44 -> copyRes
+    1:4:void downFile(java.lang.String):120:123 -> downFile
+    1:1:void getNewVer():76:76 -> getNewVer
+    1:9:void init(android.content.Context,com.pq.pqtools.H5Notifier):17:25 -> init
+    1:2:void reDownload(java.lang.String):155:156 -> reDownload
+    1:12:java.lang.String readFileFromAssets(java.lang.String):56:67 -> readFileFromAssets
+    1:6:void unzipRes():47:52 -> unzipRes
+    1:3:void updateVersionFile(java.lang.String):164:166 -> updateVersionFile
 com.pq.pqtools.H5Util$1 -> com.pq.pqtools.H5Util$1:
-    1:1:void <init>():28:28 -> <init>
-    1:1:void run():31:31 -> run
+    1:1:void <init>():29:29 -> <init>
+    1:1:void run():32:32 -> run
 com.pq.pqtools.H5Util$1$1 -> com.pq.pqtools.H5Util$1$1:
-    1:1:void <init>(com.pq.pqtools.H5Util$1):31:31 -> <init>
-    1:1:void copyFailed():39:39 -> copyFailed
-    1:2:void copySuccess():34:35 -> copySuccess
+    1:1:void <init>(com.pq.pqtools.H5Util$1):32:32 -> <init>
+    1:1:void copyFailed():40:40 -> copyFailed
+    1:2:void copySuccess():35:36 -> copySuccess
 com.pq.pqtools.H5Util$2 -> com.pq.pqtools.H5Util$2:
-    1:1:void <init>():75:75 -> <init>
-    1:1:void onFailed(java.lang.String):86:86 -> onFailed
-    1:4:void onSuccess(java.lang.String):78:81 -> onSuccess
+    1:1:void <init>():76:76 -> <init>
+    1:1:void onFailed(java.lang.String):87:87 -> onFailed
+    1:4:void onSuccess(java.lang.String):79:82 -> onSuccess
 com.pq.pqtools.H5Util$3 -> com.pq.pqtools.H5Util$3:
-    1:1:void <init>(java.lang.String):121:121 -> <init>
-    1:2:void downFiled(java.lang.String):124:125 -> downFiled
-    1:15:void downFinish():130:144 -> downFinish
-    1:1:void downing(int):148:148 -> downing
+    1:1:void <init>(java.lang.String):123:123 -> <init>
+    1:2:void downFiled(java.lang.String):126:127 -> downFiled
+    1:15:void downFinish():132:146 -> downFinish
+    1:1:void downing(int):150:150 -> downing
 com.pq.pqtools.H5Util$4 -> com.pq.pqtools.H5Util$4:
-    1:1:void <init>(java.lang.String):154:154 -> <init>
-    1:1:void run():157:157 -> run
+    1:1:void <init>(java.lang.String):156:156 -> <init>
+    1:1:void run():159:159 -> run
 com.pq.pqtools.H5Util$5 -> com.pq.pqtools.H5Util$5:
-    1:1:void <init>():164:164 -> <init>
-    1:1:void downFiled(java.lang.String):167:167 -> downFiled
-    1:1:void downFinish():175:175 -> downFinish
+    1:1:void <init>():166:166 -> <init>
+    1:1:void downFiled(java.lang.String):169:169 -> downFiled
+    1:1:void downFinish():177:177 -> downFinish
 com.pq.pqtools.HttpUtil -> com.pq.pqtools.HttpUtil:
     1:1:void <init>():7:7 -> <init>
     1:15:void get(java.lang.String,com.pq.pqtools.HttpNotifier):9:23 -> get
