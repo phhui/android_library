@@ -1,6 +1,6 @@
 # compiler: R8
 # compiler_version: 1.6.82
-# pg_map_id: d188a00
+# pg_map_id: e889e3b
 # common_typos_disable
 com.pq.pqtools.ApiHelper -> com.pq.pqtools.ApiHelper:
     1:1:void <init>():17:17 -> <init>
@@ -57,18 +57,22 @@ com.pq.pqtools.DownloadUtil$1$1 -> com.pq.pqtools.DownloadUtil$1$1:
     1:1:void <init>(com.pq.pqtools.DownloadUtil$1,retrofit2.Response):57:57 -> <init>
     1:3:void run():60:62 -> run
 com.pq.pqtools.FileUtil -> com.pq.pqtools.FileUtil:
-    1:1:void <init>():12:12 -> <init>
-    1:2:boolean checkDir(java.lang.String):143:144 -> checkDir
-    1:22:void copy(android.content.Context,java.lang.String,java.lang.String,java.lang.String,com.pq.pqtools.FileNotifier):118:139 -> copy
-    1:1:boolean createOrExistsDir(java.io.File):51:51 -> createOrExistsDir
-    2:2:boolean createOrExistsDir(java.lang.String):61:61 -> createOrExistsDir
-    1:6:boolean createOrExistsFile(java.io.File):33:38 -> createOrExistsFile
-    1:10:boolean del(java.lang.String):147:156 -> del
-    1:1:java.io.File getFileByPath(java.lang.String):71:71 -> getFileByPath
-    1:1:boolean isFileExists(java.io.File):21:21 -> isFileExists
-    1:2:boolean isSpace(java.lang.String):76:77 -> isSpace
-    1:21:java.lang.String read(java.lang.String):85:105 -> read
-    22:22:java.lang.String read(java.lang.String):103:103 -> read
+    1:1:void <init>():13:13 -> <init>
+    1:2:boolean checkDir(java.lang.String):144:145 -> checkDir
+    1:22:void copy(android.content.Context,java.lang.String,java.lang.String,java.lang.String,com.pq.pqtools.FileNotifier):119:140 -> copy
+    1:31:void copyAssetsDir2Phone(android.content.Context,java.lang.String,com.pq.pqtools.FileNotifier):166:196 -> copyAssetsDir2Phone
+    32:49:void copyAssetsDir2Phone(android.content.Context,java.lang.String,com.pq.pqtools.FileNotifier):185:202 -> copyAssetsDir2Phone
+    1:18:void copyAssetsFile2Phone(android.content.Context,java.lang.String,com.pq.pqtools.FileNotifier):211:228 -> copyAssetsFile2Phone
+    19:35:void copyAssetsFile2Phone(android.content.Context,java.lang.String,com.pq.pqtools.FileNotifier):217:233 -> copyAssetsFile2Phone
+    1:1:boolean createOrExistsDir(java.io.File):52:52 -> createOrExistsDir
+    2:2:boolean createOrExistsDir(java.lang.String):62:62 -> createOrExistsDir
+    1:6:boolean createOrExistsFile(java.io.File):34:39 -> createOrExistsFile
+    1:10:boolean del(java.lang.String):148:157 -> del
+    1:1:java.io.File getFileByPath(java.lang.String):72:72 -> getFileByPath
+    1:1:boolean isFileExists(java.io.File):22:22 -> isFileExists
+    1:2:boolean isSpace(java.lang.String):77:78 -> isSpace
+    1:21:java.lang.String read(java.lang.String):86:106 -> read
+    22:22:java.lang.String read(java.lang.String):104:104 -> read
 com.pq.pqtools.FullScreenUtil -> com.pq.pqtools.FullScreenUtil:
     1:1:void <init>():14:14 -> <init>
     1:1:android.os.Handler access$000():14:14 -> access$000
@@ -91,45 +95,46 @@ com.pq.pqtools.FullScreenUtil$4 -> com.pq.pqtools.FullScreenUtil$4:
     1:1:void <init>():42:42 -> <init>
     1:1:void run():45:45 -> run
 com.pq.pqtools.H5Util -> com.pq.pqtools.H5Util:
-    1:1:void <clinit>():15:15 -> <clinit>
-    1:1:void <init>():10:10 -> <init>
-    1:1:java.lang.String access$000():10:10 -> access$000
-    1:1:void access$100(java.lang.String):10:10 -> access$100
-    1:1:void access$200(java.lang.String):10:10 -> access$200
-    1:1:com.pq.pqtools.H5Notifier access$300():10:10 -> access$300
-    1:1:void checkUpdate():73:73 -> checkUpdate
-    1:24:void checkVer(java.lang.String):93:116 -> checkVer
-    1:16:void copyRes():29:44 -> copyRes
-    1:4:void downFile(java.lang.String):120:123 -> downFile
-    1:1:void getNewVer():76:76 -> getNewVer
-    1:9:void init(android.content.Context,com.pq.pqtools.H5Notifier):17:25 -> init
-    1:2:void reDownload(java.lang.String):155:156 -> reDownload
-    1:12:java.lang.String readFileFromAssets(java.lang.String):56:67 -> readFileFromAssets
-    1:6:void unzipRes():47:52 -> unzipRes
-    1:3:void updateVersionFile(java.lang.String):164:166 -> updateVersionFile
+    1:1:void <clinit>():16:16 -> <clinit>
+    1:1:void <init>():11:11 -> <init>
+    1:1:java.lang.String access$000():11:11 -> access$000
+    1:1:void access$100(java.lang.String):11:11 -> access$100
+    1:1:void access$200(java.lang.String):11:11 -> access$200
+    1:1:com.pq.pqtools.H5Notifier access$300():11:11 -> access$300
+    1:1:void checkUpdate():74:74 -> checkUpdate
+    1:49:void checkVer(java.lang.String):94:142 -> checkVer
+    1:16:void copyRes():30:45 -> copyRes
+    1:4:void downFile(java.lang.String):146:149 -> downFile
+    1:1:void getNewVer():77:77 -> getNewVer
+    1:9:void init(android.content.Context,com.pq.pqtools.H5Notifier):18:26 -> init
+    1:2:void reDownload(java.lang.String):181:182 -> reDownload
+    1:12:java.lang.String readFileFromAssets(java.lang.String):57:68 -> readFileFromAssets
+    1:6:void unzipRes():48:53 -> unzipRes
+    1:6:void updateVersionFile(java.lang.String):202:207 -> updateVersionFile
+    1:8:void writeFileData(java.lang.String,java.lang.String):191:198 -> writeFileData
 com.pq.pqtools.H5Util$1 -> com.pq.pqtools.H5Util$1:
-    1:1:void <init>():29:29 -> <init>
-    1:1:void run():32:32 -> run
+    1:1:void <init>():30:30 -> <init>
+    1:1:void run():33:33 -> run
 com.pq.pqtools.H5Util$1$1 -> com.pq.pqtools.H5Util$1$1:
-    1:1:void <init>(com.pq.pqtools.H5Util$1):32:32 -> <init>
-    1:1:void copyFailed():40:40 -> copyFailed
-    1:2:void copySuccess():35:36 -> copySuccess
+    1:1:void <init>(com.pq.pqtools.H5Util$1):33:33 -> <init>
+    1:1:void copyFailed():41:41 -> copyFailed
+    1:2:void copySuccess():36:37 -> copySuccess
 com.pq.pqtools.H5Util$2 -> com.pq.pqtools.H5Util$2:
-    1:1:void <init>():76:76 -> <init>
-    1:1:void onFailed(java.lang.String):87:87 -> onFailed
-    1:4:void onSuccess(java.lang.String):79:82 -> onSuccess
+    1:1:void <init>():77:77 -> <init>
+    1:1:void onFailed(java.lang.String):88:88 -> onFailed
+    1:4:void onSuccess(java.lang.String):80:83 -> onSuccess
 com.pq.pqtools.H5Util$3 -> com.pq.pqtools.H5Util$3:
-    1:1:void <init>(java.lang.String):123:123 -> <init>
-    1:2:void downFiled(java.lang.String):126:127 -> downFiled
-    1:15:void downFinish():132:146 -> downFinish
-    1:1:void downing(int):150:150 -> downing
+    1:1:void <init>(java.lang.String[]):99:99 -> <init>
+    1:1:void copyFailed():109:109 -> copyFailed
+    1:4:void copySuccess():102:105 -> copySuccess
 com.pq.pqtools.H5Util$4 -> com.pq.pqtools.H5Util$4:
-    1:1:void <init>(java.lang.String):156:156 -> <init>
-    1:1:void run():159:159 -> run
+    1:1:void <init>(java.lang.String):149:149 -> <init>
+    1:2:void downFiled(java.lang.String):152:153 -> downFiled
+    1:15:void downFinish():158:172 -> downFinish
+    1:1:void downing(int):176:176 -> downing
 com.pq.pqtools.H5Util$5 -> com.pq.pqtools.H5Util$5:
-    1:1:void <init>():166:166 -> <init>
-    1:1:void downFiled(java.lang.String):169:169 -> downFiled
-    1:1:void downFinish():177:177 -> downFinish
+    1:1:void <init>(java.lang.String):182:182 -> <init>
+    1:1:void run():185:185 -> run
 com.pq.pqtools.HttpUtil -> com.pq.pqtools.HttpUtil:
     1:1:void <init>():7:7 -> <init>
     1:15:void get(java.lang.String,com.pq.pqtools.HttpNotifier):9:23 -> get

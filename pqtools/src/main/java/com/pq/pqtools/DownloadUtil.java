@@ -91,7 +91,7 @@ public class DownloadUtil {
             while ((len = is.read(buff)) != -1) {
                 os.write(buff, 0, len);
                 currentLength += len;
-                Log.e(TAG, "当前进度: " + currentLength);
+//                Log.e(TAG, "当前进度: " + currentLength);
                 //计算当前下载百分比，并经由回调传出
                 dn.downing((int) (100 * currentLength / totalLength));
                 //当百分比为100时下载结束，调用结束回调，并传出下载后的本地路径
