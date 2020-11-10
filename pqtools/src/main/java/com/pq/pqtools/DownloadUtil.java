@@ -87,7 +87,7 @@ public class DownloadUtil {
         try {
             os = new FileOutputStream(file); //输出流
             int len;
-            byte[] buff = new byte[1024];
+            byte[] buff = new byte[64];
             while ((len = is.read(buff)) != -1) {
                 os.write(buff, 0, len);
                 currentLength += len;
